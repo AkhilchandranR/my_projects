@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>all entries</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+p {
+padding:5px;
+  
+}
+</style>
+<div class="container">
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+{% load static %}
+    <img src="{% static "entry/images.png"%}" width="30" height="30" class="d-inline-block align-top" >
+   Diary app!!!
+  </a>
+</nav>
+</div>
+  </head>
+  <body>
+   
+    <p>
+     {% for entry in entries %}
+    <strong>{{entry.date}}</strong><br>
+    {{entry.content}}<br><br>
+    <a class="btn btn-secondary btn-sm" href="/edit/{{entry.id}}" role="button" st>edit</a>
+    <a class="btn btn-danger btn-sm "href="/delete/{{entry.id}}" role="button">delete</a><br><br>
+    {% endfor %}
+ 
+    </p>
+    </body>
+</html>
+

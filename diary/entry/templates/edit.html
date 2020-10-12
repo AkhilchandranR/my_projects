@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>home page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+  p {
+    text-align: center;
+  }
+</style>
+   <div class="container">
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+{% load static %}
+    <img src="{% static "entry/images.png"%}" width="30" height="30" class="d-inline-block align-top" >
+   Diary app!!!
+  </a>
+</nav>
+</div>
+</head>
+<body>
+<p>
+    <form method="post" class="post-form" enctype="multipart/form-data" action="update/{{entries.id}}">
+      {%csrf_token%}
+      {{form.as_p}}
+     
+    <input type="submit" value="update">
+    </form>
+    </p>
+  </body>
+  
+</html>
